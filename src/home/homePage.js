@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './home.css'; // Import your CSS file for styling
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation  } from 'react-router-dom';
 import LineGraph from './graph';
 import searchIcon from '../images/search.png'; // Adjust the path to your image
 import { API_ROUTES } from '../app modules/apiRoutes';
@@ -11,10 +11,49 @@ import myeventsImg from '../images/myEvents.png';
 import createEventImg from '../images/create-event.png';
 import registrationsImg from '../images/registrations.png'
 import notificationImg from '../images/notifications.png'
+import premiumIcon from '../images/premium.png'
 
 const HomePage = () => {
   const [user, setUser] = useState({});
   const [registrations, setRegistrations] = useState([]);
+  const navigate = useNavigate();
+  const [activeLink, setActiveLink] = useState('/');
+  const pathActive = useLocation();
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Fetch token from localStorage
+    const token = localStorage.getItem('token');
+
+    // Send token to backend to fetch userId and count of active events
+    fetch('http://localhost:8080/getUserEvents', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setUserData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
+        setLoading(false);
+      });
+  }, []);
+  // Function to handle navigation and update active link
+  useEffect(() => {
+    setActiveLink(pathActive.pathname);
+  }, [pathActive.pathname]);
+
+  // Function to handle navigation and update active link
+  const handleNavigation = (path) => {
+    navigate(path);
+    setActiveLink(path);
+  };
 
   useEffect(() => {
     // Dummy data for registrations
@@ -46,45 +85,67 @@ const HomePage = () => {
   return (
     <div className="homepage-container">
       {/* Left Navigation */}
-      <div className="left-nav">
-        <h1 className="app-name">Amute</h1>
-        <div className="user-profile">
-          <img src={`${API_ROUTES.profilePic}/${user.profilePic}`} alt="Profile" className="profile-pic" />
-          <p className="username">{user.user_name}</p>
-        </div>
-        <div className="nav-buttons">
-          <button className="nav-btn">
-            <img src={dashboardImg} alt="Dashboard" className="nav-icon" />
-            Dashboard
-          </button>
-          <Link to='/create-event'>
-          <button className="nav-btn">
-            <img src={createEventImg} alt="Create Event" className="nav-icon" />
-            Create Event
-          </button>
-          </Link>
-          <button className="nav-btn">
-            <img src={myeventsImg} alt="My Events" className="nav-icon" />
-            My Events
-          </button>
-          <button className="nav-btn">
-            <img src={registrationsImg} alt="Registrations" className="nav-icon" />
-            Registrations
-          </button>
-          <button className="nav-btn">
-            <img src={joinedEventImg} alt="Joined Events" className="nav-icon" />
-            Joined Events
-          </button>
-          <button className="nav-btn">
-            <img src={settingsImg} alt="Settings" className="nav-icon" />
-            Settings
-          </button>
-          <button className="nav-btn">
-            <img src={`${API_ROUTES.profilePic}/${user.profilePic}`} alt="My Profile" className="nav-icon" />
-            My Profile
-          </button>
-        </div>
+    <div className="left-nav">
+      <h1 className="app-name">Amute</h1>
+      <div className="nav-buttons">
+        <button
+          className={`nav-btn ${activeLink === '/dashboard' && 'active-nav-btn'}`}
+          onClick={() => handleNavigation('/dashboard')}
+        >
+          <img src={dashboardImg} alt="Dashboard" className="nav-icon" />
+          Dashboard
+        </button>
+        <button
+          className={`nav-btn ${activeLink === '/create-event' && 'active-nav-btn'}`}
+          onClick={() => handleNavigation('/create-event')}
+        >
+          <img src={createEventImg} alt="Create Event" className="nav-icon" />
+          Create Event
+        </button>
+        <button
+          className={`nav-btn ${activeLink === '/my/events' && 'active-nav-btn'}`}
+          onClick={() => handleNavigation('/my/events')}
+        >
+          <img src={myeventsImg} alt="My Events" className="nav-icon" />
+          My Events
+        </button>
+        <button
+          className={`nav-btn ${activeLink === '/registrations' && 'active-nav-btn'}`}
+          onClick={() => handleNavigation('/registrations')}
+        >
+          <img src={registrationsImg} alt="Registrations" className="nav-icon" />
+          Registrations
+        </button>
+        <button
+          className={`nav-btn ${activeLink === '/joined/events' && 'active-nav-btn'}`}
+          onClick={() => handleNavigation('/joined/events')}
+        >
+          <img src={joinedEventImg} alt="Joined Events" className="nav-icon" />
+          Joined Events
+        </button>
+        <button
+          className={`nav-btn ${activeLink === '/settings' && 'active-nav-btn'}`}
+          onClick={() => handleNavigation('/settings')}
+        >
+          <img src={settingsImg} alt="Settings" className="nav-icon" />
+          Settings
+        </button>
+        <button
+          className={`nav-btn ${activeLink === '/premium' && 'active-nav-btn'}`}
+          onClick={() => handleNavigation('/premium')}
+        >
+          <img src={premiumIcon} alt="Premium" className="nav-icon" />
+          Premium
+        </button>
+        <button
+          className={`nav-btn ${activeLink === '/my/profile' && 'active-nav-btn'}`}
+          onClick={() => handleNavigation('/my/profile')}
+        >
+          <img src={`${API_ROUTES.profilePic}/${user.profilePic}`} alt="My Profile" className="nav-icon" />
+          My Profile
+        </button>
       </div>
+    </div>
 
       {/* Main Content */}
       <div className="main-content">
@@ -107,7 +168,7 @@ const HomePage = () => {
               <img src={settingsImg} alt="Settings" className="nav-icon" />
             </button>
             <button className="icon-btn">
-            <img src={`${API_ROUTES.profilePic}/${user.profilePic}`} alt="My Profile" className="nav-icon" />
+            <img src={premiumIcon} alt="premium" className="nav-icon" />
             </button>
           </div>
         </div>
@@ -121,13 +182,15 @@ const HomePage = () => {
               <p>123</p>
             </div>
             <div className="data-box">
-              <h3>Revenue</h3>
+              <h3>Joined Events</h3>
               <p>456</p>
             </div>
-            <div className="data-box">
-              <h3>My Events</h3>
-              <p>789</p>
-            </div>
+            {userData && (
+  <div className="data-box">
+    <h3>My Events</h3>
+    <p>{userData.eventCount}</p>
+  </div>
+)}
           </div>
 
           {/* Line Graph */}

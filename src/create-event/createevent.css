@@ -1,0 +1,180 @@
+.create-event-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #121212; /* Fallback for older browsers */
+  background: linear-gradient(to right, #121212, #181818); /* W3C standard */
+  border-radius: 25px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.create-event-form h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.form-row {
+  margin-bottom: 30px;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 37px;
+  height: 23px;
+  margin-left: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 12px;
+}
+
+.slider.round {
+  border-radius: 12px;
+}
+
+
+
+.slider.round:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.create-event-form input:checked + .slider {
+  background-color: #724cf9;
+}
+
+.create-event-form input:checked + .slider:before {
+  transform: translateX(18px);
+}
+
+.create-event-form input[type="text"],
+.create-event-form input[type="number"],
+.create-event-form input[type="datetime-local"],
+.create-event-form textarea,
+.create-event-form select,
+.create-event-form button {
+  width: 100%;
+  padding: 13px;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #6e6e6e;
+  border-radius: 15px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.create-event-form textarea {
+  resize: none;
+}
+
+.create-event-form select {
+  appearance: none;
+}
+
+.create-event-form button[type="submit"] {
+  width: 40%;
+  padding: 12px;
+  background: linear-gradient(to right, #7161ef, #a38dff);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.create-event-form button[type="submit"]:hover {
+  background: linear-gradient(to right, #a38dff, #7161ef);
+}
+
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #202020;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.modal-content .close:hover {
+  color: #fff;
+}
+
+.modal-content .premium-icon {
+  width: 50px;
+  margin-bottom: 20px;
+}
+
+.modal-content .modal-text {
+  margin-bottom: 20px;
+}
+
+.modal-content .modal-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  background: linear-gradient(to right, #7161ef, #a38dff);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background: linear-gradient(to right, #a38dff, #7161ef);
+}

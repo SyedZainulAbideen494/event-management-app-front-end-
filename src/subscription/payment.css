@@ -1,0 +1,114 @@
+.SubscriptionPlan {
+  background-color: #121212;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.SubscriptionPlan h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.SubscriptionPlan h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.SubscriptionPlan p {
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.SubscriptionPlan ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.SubscriptionPlan li {
+  font-size: 14px;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px; /* space for checkmark icon */
+}
+
+.SubscriptionPlan li i {
+  position: absolute;
+  left: 0;
+  top: 1px; /* adjust vertical alignment */
+  color: #007bff; /* color of checkmark */
+}
+
+.subscriptionBtn {
+  text-align: center;
+}
+
+.SubscriptionPlan button {
+  background-color: #fdfdfd;
+  color: #000000;
+  border: 1px solid #fdfdfd;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.SubscriptionPlan button:hover {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #fdfdfd;
+}
+
+.SuccessPage {
+  background-color: #333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  position: relative;
+}
+
+.SuccessPage h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.SuccessPage .tick-container {
+  margin: 20px 0;
+}
+
+.SuccessPage .tick {
+  display: inline-block;
+  font-size: 48px;
+  transform: scale(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.SuccessPage .tick-animate {
+  transform: scale(1);
+}
+
+.SuccessPage p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Confetti styles (optional) */
+.Confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+
+
