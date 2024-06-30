@@ -288,6 +288,9 @@ const CreateEventPage = () => {
             <option value="Art">Art</option>
             <option value="Technology">Technology</option>
             <option value="Sports">Sports</option>
+            <option value="Festival">Festival</option>
+            <option value='office party'>Office Party</option>
+            <option value='other'>Other</option>
           </select>
         </div>
         <div className="form-row">

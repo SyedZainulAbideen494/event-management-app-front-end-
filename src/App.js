@@ -13,6 +13,8 @@ import HomePage from "./home/homePage";
 import CraeteEventPage from "./create-event/create-event-page";
 import Payment from "./subscription/payment";
 import SuccessPage from "./subscription/successPayment";
+import EventDetailsAdmin from "./event Details/eventdetails";
+import JoinEvent from "./join event/joinEvent";
 
 const router = createBrowserRouter([
   {path: '/login', element: <Loginform/>},
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
   {path: '/create-event', element: <CraeteEventPage/>},
   {path: '/premium', element: <Payment/>},
   {path: '/premium/success', element: <SuccessPage/>},
+  {path: '/event/details/:event_id', element: <EventDetailsAdmin/>},
+  {path: '/event/join/:event_id', element: <JoinEvent/>},
 ]);
 
 

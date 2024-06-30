@@ -5,5 +5,6 @@ export const API_ROUTES = {
   signup: `${API_URL}/signup`,
   fetchUserDetails: `${API_URL}/api/fetch/user`,
   profilePic: `${API_URL}/profilePic`,
-  createCheckOutSession: `${API_URL}/create-checkout-session`
+  createCheckOutSession: `${API_URL}/create-checkout-session`,
+  bannersDisplay: `${API_URL}/banners`
 };

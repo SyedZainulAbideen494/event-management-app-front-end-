@@ -1,0 +1,97 @@
+.event-details {
+    display: flex;
+    background-color: #181818;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .event-banner {
+    flex: 0 0 420px; /* Adjust width of the banner */
+    margin-right: 20px;
+  }
+  
+  .event-banner img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  .event-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .event-details h2,
+  .line-graph-container h3,
+  .registered-users h3 {
+    margin-bottom: 10px;
+  }
+  
+  .event-details p,
+  .user-item {
+    margin-bottom: 8px;
+  }
+  
+  .action-buttons {
+    display: flex; /* Ensure buttons are displayed in a row */
+    margin-top: 15px;
+  }
+  
+  .deactivate-btn {
+    background: linear-gradient(to right, #7161ef, #a38dff);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .share-btn {
+    background: linear-gradient(to right, #7161ef, #a38dff);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px; /* Add margin-left to separate from the previous button */
+  }
+  
+  .deactivate-btn:hover {
+    background: linear-gradient(to right, #a38dff, #7161ef);
+  }
+  
+  .share-btn:hover {
+    background: linear-gradient(to right, #a38dff, #7161ef);
+  }
+
+  
+  .line-graph-container {
+    background-color: #181818;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .line-graph-container h3 {
+    margin-bottom: 10px;
+  }
+  
+  .registered-users {
+    background-color: #121212;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .registered-users h3 {
+    margin-bottom: 10px;
+  }
+  
+  .user-item {
+    margin-bottom: 8px;
+  }

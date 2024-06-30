@@ -1,0 +1,94 @@
+.event-container-join {
+    max-width: 400px;
+    margin: 0 auto;
+    background: #181818;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .event-banner-join {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .event-details-join {
+    padding: 20px 0;
+  }
+  
+  .event-details-join h1 {
+    margin: 0 0 10px;
+    color: #a38dff;
+  }
+  
+  .event-details-join p {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .event-details-join p svg {
+    margin-right: 10px;
+  }
+  
+  .join-form-join {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .join-form-join input {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #121212;
+    color: white;
+  }
+  
+  .join-form-join button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #7161ef, #a38dff);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .join-form-join button:hover {
+    opacity: 0.9;
+  }
+  .success-message-join {
+    text-align: center;
+  }
+  
+  .success-message-join button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #7161ef, #a38dff);
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .success-message-join button:hover {
+    opacity: 0.9;
+  }
+  @media (max-width: 600px) {
+    .event-container-join {
+      padding: 10px;
+    }
+  
+    .event-banner-join {
+      max-height: 200px;
+    }
+  
+    .event-details-join {
+      padding: 10px 0;
+    }
+  }
